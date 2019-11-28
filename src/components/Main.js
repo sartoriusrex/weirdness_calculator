@@ -23,9 +23,10 @@ const Main = () => {
 }
 
 const mapStateToProps = () => ({
+	search: "",
 	liked: [],
 	loading: false,
-	readyToCalculate: false
+	error: null
 })
 
 export default withRouter( connect( mapStateToProps, {})( Main ));
