@@ -2,21 +2,38 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const SearchResult = props => {
-	const { title, gifSrc, loading } = props;
+	const { title, gifSrc, loading, errors } = props;
 
 	return(
 		<>
 			<h2>Your Result</h2>
-			{ !title && !loading &&
+
+			{/* If there are errors */}
+			{ errors &&
+				<h4>Sorry, something went wrong. Please try your search again</h4>
+			}
+
+			{/* On initialize */}
+			{ !gifSrc && !
+				loading &&
 				<p>Search for a gif</p>
 			}
+
 			{ loading &&
 				<p>...loading</p>
 			}
-			{ title &&
+
+			{/* Sometimes a search result will not have a title, but will have a gif src url. We can display that */}
+			{ gifSrc && 
+				!loading &&
 				<>
 					<h4>{ title }</h4>
-					<img src={ gifSrc } alt={ title } />
+					{ gifSrc !== "" &&
+						<img 
+							src={ gifSrc } 
+							alt={ title || "Title and description are missing" } 
+						/>
+					}
 				</>
 			}
 		</>
@@ -27,7 +44,8 @@ function mapStateToProps( state ) {
 	return {
 		title: state.searchResult.title,
 		gifSrc: state.searchResult.gifSrc,
-		loading: state.loading
+		loading: state.loading,
+		errors: state.errors
 	}
 }
 

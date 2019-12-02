@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import Search from '../components/Search';
 import SearchResult from '../components/SearchResult';
 import LikeButton from '../components/LikeButton';
 
-const Home = () => {
+const Home = props => {
+	const { likes } = props;
 
 	return(
 		<main>
@@ -20,11 +22,18 @@ const Home = () => {
 
 			<LikeButton />
 			
-			<Link to="/results">
-				Calculate Results
-			</Link>
+			{ likes.length === 5 &&
+				<Link to="/results">
+					Calculate Results
+				</Link>
+			}
 		</main>
 	)
 }
 
-export default Home;
+function mapStateToProps( state ){
+	return {
+		likes: state.likes
+	}
+}
+export default connect( mapStateToProps, {})( Home );
