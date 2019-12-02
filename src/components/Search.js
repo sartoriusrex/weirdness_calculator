@@ -31,7 +31,7 @@ const SearchForm = props => {
 			<Field 
 				name="weirdnessScale"
 				component={ RangeSlider }
-				defaultValue="1"
+				defaultValue="0"
 			/>
 			<button type="submit">Search</button>
 		</form>
@@ -42,7 +42,7 @@ let SearchFormRedux = reduxForm({
 	form: "searchGifs",
 	initialValues: {
 		query: "",
-		weirdnessScale: 1
+		weirdnessScale: 0
 	}
 })( SearchForm )
 

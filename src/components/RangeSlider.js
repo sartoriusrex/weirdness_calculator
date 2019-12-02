@@ -7,7 +7,7 @@ const RangeSlider = props => {
 			<input 
 				name="weirdness"
 				type="range" 
-				min="1"
+				min="0"
 				max="10"
 				value={ value }
 				onChange={ onChange }

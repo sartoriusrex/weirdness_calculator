@@ -2,32 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { unlikeGif } from '../store/actions/likes';
+import LikesList from './LikesList';
 
 const Likes = props => {
-	const { likes, unlikeGif } = props;
-
-	function deleteGifFromList( gifSrc ){
-		unlikeGif( gifSrc );
-	}
+	const { likes } = props;
 
 	return(
 		<article>
 			<h2>Your Liked GIFs</h2>
-			<ul>
-				{ likes.map( gif => 
-					<li key={ gif.gifSrc }>
-						<h4>{ gif.title }</h4>
-						<img 
-							src={ gif.stillSrc } 
-							alt={ gif.title } 
-						/>
-						<button
-							onClick={ () => deleteGifFromList( gif.gifSrc ) }
-						>x</button>
-					</li>
-				)}
-			</ul>
+			
+			<LikesList />
+
+			{ `You must like ${ 5 - likes.length } more GIFs to calculate your score.`}
 
 			{ likes.length === 5 &&
 				<Link to="/results">
@@ -44,4 +30,4 @@ function mapStateToProps( state ) {
 	}
 }
 
-export default connect( mapStateToProps, { unlikeGif } )( Likes );
+export default connect( mapStateToProps, {  } )( Likes );
