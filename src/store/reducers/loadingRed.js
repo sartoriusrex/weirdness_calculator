@@ -1,10 +1,12 @@
 import { SET_LOADING } from "../actions/actionTypes";
 
-export default (state = { loading: false }, action ) => {
+const loading = (state = false, action ) => {
   switch( action.type ) {
     case SET_LOADING:
-			return { ...state, loading: !!state.loading }
+			return action.loading
     default:
       return state;
   }
 }
+
+export default loading;

@@ -22,11 +22,9 @@ const Main = () => {
 	)
 }
 
-const mapStateToProps = () => ({
-	search: "",
-	liked: [],
-	loading: false,
-	error: null
+const mapStateToProps = state => ({
+	likes: state.likes,
+	search: state.search
 })
 
-export default withRouter( connect( mapStateToProps, {})( Main ));
+export default withRouter( connect( mapStateToProps, {} )( Main ));
