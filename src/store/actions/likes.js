@@ -11,7 +11,13 @@ export const likeGif = gif => dispatch => {
 	)
 }
 
-export const removeGifFromLikes = gif => ({
+export const removeGifFromLikes = gifSrc => ({
 	type: REMOVE_GIF,
-	gif
+	gifSrc
 });
+
+export const unlikeGif = gifSrc => dispatch => {
+	return(
+		dispatch( removeGifFromLikes( gifSrc ) )
+	)
+}

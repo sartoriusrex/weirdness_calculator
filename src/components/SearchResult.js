@@ -1,11 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import LikeButton from '../components/LikeButton';
+
 const SearchResult = props => {
 	const { title, gifSrc, loading, errors } = props;
 
 	return(
-		<>
+		<article>
 			<h2>Your Result</h2>
 
 			{/* If there are errors */}
@@ -36,7 +38,9 @@ const SearchResult = props => {
 					}
 				</>
 			}
-		</>
+
+			<LikeButton />
+		</article>
 	)
 }
 

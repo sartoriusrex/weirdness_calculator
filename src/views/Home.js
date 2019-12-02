@@ -1,14 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
 
 import Search from '../components/Search';
 import SearchResult from '../components/SearchResult';
-import LikeButton from '../components/LikeButton';
+import Likes from '../components/Likes';
 
-const Home = props => {
-	const { likes } = props;
-
+const Home = () => {
 	return(
 		<main>
 			<h1>Weirdness Calculator</h1>
@@ -20,20 +16,10 @@ const Home = props => {
 
 			<SearchResult />
 
-			<LikeButton />
-			
-			{ likes.length === 5 &&
-				<Link to="/results">
-					Calculate Results
-				</Link>
-			}
+			<Likes />
+
 		</main>
 	)
 }
 
-function mapStateToProps( state ){
-	return {
-		likes: state.likes
-	}
-}
-export default connect( mapStateToProps, {})( Home );
+export default Home;

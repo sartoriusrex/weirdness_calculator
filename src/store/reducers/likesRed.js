@@ -5,7 +5,10 @@ const likes = ( state = [], action ) => {
     case ADD_GIF:
 			return [ ...state, action.gif ];
 		case REMOVE_GIF:
-			return [ state.filter( state => state !== action.gif ) ]
+      let oldLikes = [ ...state ]
+      let newLikes = oldLikes.filter( gif => gif.gifSrc !== action.gifSrc );
+
+			return newLikes
     default:
       return [ ...state];
   }
