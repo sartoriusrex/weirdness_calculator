@@ -1,4 +1,4 @@
-import { ADD_GIF, REMOVE_GIF } from './actionTypes';
+import { ADD_GIF, REMOVE_GIF, RESET_LIKES } from './actionTypes';
 
 export const addGifToLikes = gif => ({
 	type: ADD_GIF,
@@ -19,5 +19,15 @@ export const removeGifFromLikes = gifSrc => ({
 export const unlikeGif = gifSrc => dispatch => {
 	return(
 		dispatch( removeGifFromLikes( gifSrc ) )
+	)
+}
+
+export const removeAllLikes = () => ({
+	type: RESET_LIKES,
+})
+
+export const resetLikes = () => dispatch =>{
+	return(
+		dispatch( removeAllLikes() )
 	)
 }

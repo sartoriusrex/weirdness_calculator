@@ -19,6 +19,7 @@ const LikesList = props => {
 						src={ gif.stillSrc } 
 						alt={ gif.title } 
 					/>
+					<p>{ gif.weirdness } / 10</p>
 					<button
 						onClick={ () => deleteGifFromList( gif.gifSrc ) }
 					>x</button>

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import LikeButton from '../components/LikeButton';
 
 const SearchResult = props => {
-	const { title, gifSrc, loading, errors } = props;
+	const { searchTerm, title, gifSrc, loading, errors } = props;
 
 	return(
 		<article>
@@ -16,13 +16,18 @@ const SearchResult = props => {
 			}
 
 			{/* On initialize */}
-			{ !gifSrc && !
-				loading &&
+			{ !searchTerm && 
+				!loading &&
 				<p>Search for a gif</p>
 			}
 
 			{ loading &&
 				<p>...loading</p>
+			}
+
+			{ title === "No Results Found" &&
+				searchTerm === "No Results Found" &&
+				<h4>No Results Found</h4>
 			}
 
 			{/* Sometimes a search result will not have a title, but will have a gif src url. We can display that */}
@@ -46,6 +51,7 @@ const SearchResult = props => {
 
 function mapStateToProps( state ) {
 	return {
+		searchTerm: state.searchResult.searchTerm,
 		title: state.searchResult.title,
 		gifSrc: state.searchResult.gifSrc,
 		loading: state.loading,

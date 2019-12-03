@@ -2,6 +2,7 @@ import { SEARCH } from './actionTypes';
 import { addError, removeError } from "./errors";
 import { setLoading } from './loading';
 import apiCall from '../../apiCall';
+import { reset } from 'redux-form';
 
 const KEY = process.env.REACT_APP_GIPHY;
 
@@ -14,7 +15,7 @@ export const search = ( searchTerm, weirdness ) => dispatch => {
 			let data = {}
 			
 			if ( res.data.length === 0 ){
-				data.searchTerm = "";
+				data.searchTerm = "No Results Found";
 				data.weirdness = 0;
 				data.title = "No Results Found";
 				data.gifSrc = "";
@@ -22,7 +23,7 @@ export const search = ( searchTerm, weirdness ) => dispatch => {
 			} else {
 				data.searchTerm = searchTerm;
 				data.weirdness = parseInt( weirdness );
-				data.title = res.data.title;
+				data.title = res.data.title === "" ? "No Title" : res.data.title ;
 				data.gifSrc = res.data.images.downsized_large.url;
 				data.stillSrc = res.data.images.fixed_width_small_still.url;
 			}
@@ -44,3 +45,8 @@ export const displaySearchResult = searchResult => ({
 	type: SEARCH,
 	searchResult
 })
+
+export const resetSearch = () => dispatch => {
+	dispatch( reset( 'searchGifs' ))
+	dispatch( displaySearchResult( "" ) )
+}

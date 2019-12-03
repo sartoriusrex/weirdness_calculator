@@ -13,13 +13,14 @@ const Likes = props => {
 			
 			<LikesList />
 
-			{ `You must like ${ 5 - likes.length } more GIFs to calculate your score.`}
-
-			{ likes.length === 5 &&
+			{ likes.length !== 5 ? 
+				`You must like ${ 5 - likes.length } more GIFs to calculate your score.` 
+				:
 				<Link to="/results">
 					Calculate Results
 				</Link>
 			}
+
 		</article>
 	)
 }
