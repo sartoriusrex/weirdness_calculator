@@ -22,6 +22,7 @@ const LikeButton = props => {
 		// conditions to NOT display the Like button
 		if( searchResult === "" || //Initial state is empty string
 				searchResult.searchTerm === "" || //Search results return status 200, but without any gifs returned, searchResult.searchTerm is empty string.
+				searchResult.searchTerm === "No Results Found" || //Cannot like a gif not found
 				likes.length === 5 //Maximum number of liked gifs is 5
 		) {
 			return true
