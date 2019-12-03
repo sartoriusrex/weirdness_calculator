@@ -13,10 +13,10 @@ import { resetSearch } from '../store/actions/search';
 const Results = props => {
 	const { likes, resetLikes, resetSearch } = props;
 
-	// Extract all weirdness scores from gifs in Likes list and average them using reduce
-	const weirdnessScore = likes
+	// Extract all weirdness scores from gifs in Likes list and average them using reduce, rounded to the nearest integer
+	const weirdnessScore = Math.round( likes
 		.map( gif => gif.weirdness )
-		.reduce( ( acc, curr, idx, src ) => acc += curr / src.length, 0 );
+		.reduce( ( acc, curr, idx, src ) => acc += curr / src.length, 0 ));
 
 	function resetApp(){
 		resetLikes();
