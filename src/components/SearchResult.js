@@ -8,19 +8,20 @@ const SearchResult = props => {
 	const { title, gifSrc } = props;
 
 	return(
-		<section className="flex flex-col items-center">
+		<section className="flex flex-col items-center w-full">
+
+			<h4
+				className="text-xl my-4"
+			>{ title }</h4>
+
 			<LikeButton />
 
-				<h4
-					className="text-xl my-4"
-				>{ title }</h4>
-
-				{ gifSrc !== "" &&
-					<img 
-						src={ gifSrc } 
-						alt={ title !== "" ? title : "Title and description are missing" } 
-					/>
-				}
+			{ gifSrc !== "" &&
+				<img 
+					src={ gifSrc } 
+					alt={ title !== "" ? title : "Title and description are missing" } 
+				/>
+			}
 
 		</section>
 	)

@@ -19,7 +19,7 @@ const SearchResultContainer = props => {
 		<UserPrompt /> :
 
 		<article className="flex flex-col items-center min-h-full">
-			<div className="p-2 my-2 flex flex-col items-center justify-center min-h-1/2 w-full">
+			<div className="my-2 flex flex-col items-center justify-center min-h-1/2 w-full">
 
 				{/* If there are errors */}
 				{ errors && <ErrorIndicator /> }

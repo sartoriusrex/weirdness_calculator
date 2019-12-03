@@ -52,7 +52,7 @@ const SearchForm = props => {
 			
 			<button 
 				type="submit"
-				className="bg-purple-800 text-white w-full md:w-1/4"
+				className="bg-purple-800 text-white w-full md:w-1/4 py-2"
 			>Search</button>
 
 		</form>

@@ -36,6 +36,7 @@ const LikeButton = props => {
 			type="submit" 
 			onClick={ handleLike }
 			disabled={ disableLikeButton() }
+			className="bg-green-800 text-white py-2 my-4 md:w-1/4 w-full"
 		>Like</button>
 	)
 }
