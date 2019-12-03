@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Search from '../components/Search';
+import SearchForm from '../components/SearchForm';
 import SearchResult from '../components/SearchResult';
 import LikesContainer from '../components/LikesContainer';
 
@@ -12,7 +12,7 @@ const Home = () => {
 			<p>When you find a GIF you like, press the <em>Like</em> button. Once you like 5 GIFs, you can calculate your weirdness.</p>
 			<p>You can only select one GIF per search term. For example, you cannot like 3 GIFs that you found by only searching for "pantomine." At any point, you can remove previously liked GIFs.</p>
 
-			<Search />
+			<SearchForm />
 
 			<SearchResult />
 
