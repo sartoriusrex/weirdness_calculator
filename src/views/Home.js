@@ -1,7 +1,7 @@
 import React from 'react';
 
 import SearchForm from '../components/SearchForm';
-import SearchResult from '../components/SearchResult';
+import SearchResultContainer from '../components/SearchResultContainer';
 import LikesContainer from '../components/LikesContainer';
 
 export default function Home() {
@@ -23,7 +23,7 @@ export default function Home() {
 
 					<hr className="my-4"/>
 					
-					<SearchResult />
+					<SearchResultContainer />
 				</div>
 
 				<LikesContainer />

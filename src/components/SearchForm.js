@@ -27,7 +27,7 @@ const SearchForm = props => {
 	return(
 		<form 
 			onSubmit={ handleSubmit( onSubmit ) }
-			className="flex flex-col items-center mb-4"
+			className="flex flex-col items-center mb-8"
 		>
 			<Field 
 				name="query"
