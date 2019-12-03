@@ -2,14 +2,21 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+// components
 import LikesList from '../components/LikesList';
+
+// actions
 import { resetLikes } from '../store/actions/likes';
 import { resetSearch } from '../store/actions/search';
+
 
 const Results = props => {
 	const { likes, resetLikes, resetSearch } = props;
 
-	const weirdnessScore = likes.map( gif => gif.weirdness ).reduce( ( acc, curr, idx, src ) => acc += curr / src.length, 0 );
+	// Extract all weirdness scores from gifs in Likes list and average them using reduce
+	const weirdnessScore = likes
+		.map( gif => gif.weirdness )
+		.reduce( ( acc, curr, idx, src ) => acc += curr / src.length, 0 );
 
 	function resetApp(){
 		resetLikes();
