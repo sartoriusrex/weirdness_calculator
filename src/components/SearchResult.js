@@ -1,43 +1,53 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+//Components
+import LoadingIndicator from '../components/LoadingIndicator';
+import ErrorIndicator from '../components/ErrorIndicator';
+import NoResult from '../components/NoResult';
 import LikeButton from '../components/LikeButton';
 
 const SearchResult = props => {
 	const { searchTerm, title, gifSrc, loading, errors, likes } = props;
+	const noresult = "No Results Found";
 
 	return(
-		<article>
-			<h2>Your Result</h2>
+		<article className="flex flex-col items-center">
+			<h2 
+				className="text-2xl mb-4"
+			>Your Result</h2>
 
-			{/* If there are errors */}
-			{ errors && <h4>Sorry, something went wrong. Please try your search again</h4> }
+			<div className="p-2 my-2 flex flex-col items-center justify-center border border-solid border-gray-300 min-h-full w-full">
 
-			{/* Loading state */}
-			{ loading && <h4>Loading. Please wait one moment.</h4> }
+				{/* If there are errors */}
+				{ errors && <ErrorIndicator /> }
 
-			{/* On initialize and reinitialize */}
-			{ !searchTerm && !loading && <h4>Search for a gif</h4> }
+				{/* Loading state */}
+				{ loading && <LoadingIndicator /> }
 
-			{/* Search results will come back with status 200, but without data. In that case, we manually set title and searchTerm to indicate no results */}
-			{ title === "No Results Found" &&
-				searchTerm === "No Results Found" &&
-				<h4>No Results Found</h4>
-			}
+				{/* Search results will come back with status 200, but without data. In that case, we manually set title and searchTerm to indicate no results */}
+				{ title === noresult && searchTerm === noresult &&
+					<NoResult />
+				}
 
-			{/* Sometimes a search result will not have a title, but will have a gif src url. We can display that */}
-			{ gifSrc && 
-				!loading &&
-				<>
-					<h4>{ title }</h4>
-					{ gifSrc !== "" &&
-						<img 
-							src={ gifSrc } 
-							alt={ title || "Title and description are missing" } 
-						/>
-					}
-				</>
-			}
+				{/* On initialize and reinitialize */}
+				{ !searchTerm && !loading && <h4>Search for a gif</h4> }
+
+				{/* Sometimes a search result will not have a title, but will have a gif src url. We can display that */}
+				{ gifSrc && 
+					!loading &&
+					<>
+						<h4>{ title }</h4>
+						{ gifSrc !== "" &&
+							<img 
+								src={ gifSrc } 
+								alt={ title || "Title and description are missing" } 
+							/>
+						}
+					</>
+				}
+
+			</div>
 
 			{ likes.length === 5 && <h4>You've liked 5 GIFs! You can now calculate your Weirdness Score!</h4>}
 

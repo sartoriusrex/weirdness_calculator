@@ -21,6 +21,8 @@ export default function Home() {
 				<div className="md:w-1/2 px-4">
 					<SearchForm />
 
+					<hr className="my-4"/>
+					
 					<SearchResult />
 				</div>
 

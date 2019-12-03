@@ -31,8 +31,8 @@ export const search = ( searchTerm, weirdness ) => dispatch => {
 				data.weirdness = parseInt( weirdness );
 				// Sometimes we get incomplete data back, such as a missing title. We indicate so here
 				data.title = res.data.title === "" ? "No Title" : res.data.title ;
-				data.gifSrc = res.data.images.downsized_large.url;
-				data.stillSrc = res.data.images.fixed_width_small_still.url;
+				data.gifSrc = res.data.images.fixed_height.url;
+				data.stillSrc = res.data.images.fixed_height_small_still.url;
 			}
 
 			dispatch( displaySearchResult( data ) );
