@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import LikesList from './LikesList';
 
-const Likes = props => {
+const LikesContainer = props => {
 	const { likes } = props;
 
 	return(
@@ -32,4 +32,4 @@ function mapStateToProps( state ) {
 	}
 }
 
-export default connect( mapStateToProps, {  } )( Likes );
+export default connect( mapStateToProps, {  } )( LikesContainer );
