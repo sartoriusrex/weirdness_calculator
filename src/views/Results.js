@@ -24,24 +24,33 @@ const Results = props => {
 	}
 
 	return(
-		<main>
-			<h1>These are your results</h1>
+		<main className="flex flex-col md:w-1/2 mx-2 items-center md:mx-auto">
+			<h1 
+				className="text-4xl text-purple-800 text-center my-4"
+			>How Weird Are You?</h1>
 
-			<h4>Congrats! You Scored { weirdnessScore } out of 10 on the Weirdness Scale!</h4>
+			<h4
+				className="text-2xl mb-6 text-center"
+			>Congrats! You Scored { weirdnessScore } out of 10 on the Weirdness Scale!</h4>
 
-			<LikesList from="results" />
+			<div>
+				<Link 
+					to="/"
+					className="bg-gray-300 px-2 py-1 mx-4"
+				>Go Back
+				</Link>
 
-			<Link to="/">
-				Go Back
-			</Link>
-
-			<Link to="/">
-				<button
+				<Link 
+					to="/"
 					onClick={ resetApp }
+					className="bg-green-800 text-white px-2 py-1 mx-4"
 				>
 					Start Over
-				</button>
-			</Link>
+				</Link>
+			</div>
+
+			<LikesList from="results" />
+			
 		</main>
 	)
 }
