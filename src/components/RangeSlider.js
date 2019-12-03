@@ -11,6 +11,7 @@ const RangeSlider = props => {
 				max="10"
 				value={ value }
 				onChange={ onChange }
+				className="mb-2 px-2"
 			/>
 		</>
 	)

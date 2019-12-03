@@ -6,7 +6,7 @@ import LikesContainer from '../components/LikesContainer';
 
 export default function Home() {
 	return(
-		<main className="flex flex-col mx-12">
+		<main className="flex flex-col md:mx-12 mx-2">
 			<h1 className="text-4xl text-purple-800 text-center my-4">Weirdness Calculator</h1>
 
 			<section className="flex flex-col md:flex-row">
