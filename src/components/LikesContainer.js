@@ -10,8 +10,6 @@ const LikesContainer = props => {
 	return(
 		<article>
 			<h2>Your Liked GIFs</h2>
-			
-			<LikesList from="likes" />
 
 			{/* If the length of the likes list is not 5, then show user how many more gifs they need to like. Otherwise show them the link to calculate their results and navigate them to results page */}
 			{ likes.length !== 5 ? 
@@ -21,6 +19,8 @@ const LikesContainer = props => {
 					Calculate Results
 				</Link>
 			}
+
+			<LikesList from="likes" />
 
 		</article>
 	)

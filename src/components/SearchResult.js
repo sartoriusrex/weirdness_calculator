@@ -39,7 +39,7 @@ const SearchResult = props => {
 				</>
 			}
 
-			{ likes.length === 5 && <h4>You can now calculate your Weirdness Score!</h4>}
+			{ likes.length === 5 && <h4>You've liked 5 GIFs! You can now calculate your Weirdness Score!</h4>}
 
 			<LikeButton />
 
