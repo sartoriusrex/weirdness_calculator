@@ -3,19 +3,22 @@ import { connect } from 'react-redux';
 
 import LikeButton from '../components/LikeButton';
 
+
 const SearchResult = props => {
 	const { title, gifSrc } = props;
 
 	return(
-		<section>
+		<section className="flex flex-col items-center">
 			<LikeButton />
 
+				<h4
+					className="text-xl my-4"
+				>{ title }</h4>
 
-				<h4>{ title }</h4>
 				{ gifSrc !== "" &&
 					<img 
 						src={ gifSrc } 
-						alt={ title || "Title and description are missing" } 
+						alt={ title !== "" ? title : "Title and description are missing" } 
 					/>
 				}
 
