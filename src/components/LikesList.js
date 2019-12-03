@@ -11,6 +11,8 @@ const LikesList = props => {
 			{ likes.map( gif => 
 				<li key={ gif.gifSrc }>
 					<h4>GIF Title: { gif.title }</h4>
+
+					{/* Only display the search term when rendered on the LikesParent Componenet and not the Results Page */}
 					{ from === "likes" && 
 					<h4>Search Term: { gif.searchTerm }</h4> 
 					}
