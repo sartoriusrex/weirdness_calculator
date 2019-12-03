@@ -4,26 +4,20 @@ import { connect } from 'react-redux';
 import LikeButton from '../components/LikeButton';
 
 const SearchResult = props => {
-	const { searchTerm, title, gifSrc, loading, errors } = props;
+	const { searchTerm, title, gifSrc, loading, errors, likes } = props;
 
 	return(
 		<article>
 			<h2>Your Result</h2>
 
 			{/* If there are errors */}
-			{ errors &&
-				<h4>Sorry, something went wrong. Please try your search again</h4>
-			}
+			{ errors && <h4>Sorry, something went wrong. Please try your search again</h4> }
 
-			{/* On initialize */}
-			{ !searchTerm && 
-				!loading &&
-				<h4>Search for a gif</h4>
-			}
+			{/* Loading state */}
+			{ loading && <h4>Loading. Please wait one moment.</h4> }
 
-			{ loading &&
-				<h4>Loading. Please wait one moment.</h4>
-			}
+			{/* On initialize and reinitialize */}
+			{ !searchTerm && !loading && <h4>Search for a gif</h4> }
 
 			{/* Search results will come back with status 200, but without data. In that case, we manually set title and searchTerm to indicate no results */}
 			{ title === "No Results Found" &&
@@ -45,6 +39,8 @@ const SearchResult = props => {
 				</>
 			}
 
+			{ likes.length === 5 && <h4>You can now calculate your Weirdness Score!</h4>}
+
 			<LikeButton />
 
 		</article>
@@ -57,7 +53,8 @@ function mapStateToProps( state ) {
 		title: state.searchResult.title,
 		gifSrc: state.searchResult.gifSrc,
 		loading: state.loading,
-		errors: state.errors
+		errors: state.errors,
+		likes: state.likes
 	}
 }
 
