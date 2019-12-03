@@ -19,13 +19,10 @@ export default function Home() {
 
 			<div className="flex flex-col md:flex-row">
 				<div className="md:w-1/2 px-4">
-					<SearchForm />
-
+						<SearchForm />
 					<hr className="my-4"/>
-					
-					<SearchResultContainer />
-
-					<hr className="my-4"/>
+						<SearchResultContainer />
+					<hr className="my-4 h-4"/>
 				</div>
 
 				<LikesContainer />

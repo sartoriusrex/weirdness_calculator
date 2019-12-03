@@ -1,34 +1,45 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+//actions
 import { unlikeGif } from '../store/actions/likes';
+
+// components
+import LikesListitemText from './LikesListitemText';
+import LikesListitemDeleteButton from './LikesListitemDeleteButton';
 
 const LikesList = props => {
 	const { likes, unlikeGif, from } = props;
 
 	return(
-		<ul>
+		<ul 
+			className="flex flex-wrap w-full"
+		>
 			{ likes.map( gif => 
-				<li key={ gif.gifSrc }>
-					<h4>GIF Title: { gif.title }</h4>
-
-					{/* Only display the search term when rendered on the LikesParent Componenet and not the Results Page */}
-					{ from === "likes" && 
-					<h4>Search Term: { gif.searchTerm }</h4> 
-					}
-					<img 
-						src={ gif.stillSrc } 
-						alt={ gif.title ? gif.title : "Title and description missing." } 
+				<li 
+					key={ gif.gifSrc }
+					className="flex items-center w-full justify-between my-2 relative"
+				>
+					< LikesListitemText
+						title={ gif.title }
+						searchTerm={ gif.searchTerm }
+						weirdness={ gif.weirdness }
+						from={ from }
 					/>
 
-					{/* "from" prop passed down from Parent. If Results Page is parent, show weirdness score and not the delete button */}
-					{ from === "results" ? 
-						<p>{ gif.weirdness } / 10</p>
-						:
-						<button
-							onClick={ () => unlikeGif( gif.gifSrc ) }
-						>x</button>
+					<img 
+						src={ gif.stillSrc } 
+						alt={ gif.title !== "" ? gif.title : "Title and description missing." } 
+						className="w:1/4"
+					/>
+
+					{ from === "likes" &&
+						<LikesListitemDeleteButton
+							unlikeGif={ unlikeGif }
+							gifSrc={ gif.gifSrc }
+						/>
 					}
+
 				</li>
 			)}
 		</ul>

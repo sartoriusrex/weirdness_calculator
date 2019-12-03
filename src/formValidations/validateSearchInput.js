@@ -17,7 +17,9 @@ export const validateSearchInput = formValues => {
 export const renderError = ({ error, touched }) => {
 	if( touched && error ){
 		return(
-			<p>{ error }</p>
+			<p
+				className="mx-2 text-red-700"
+			>{ error }</p>
 		)
 	}
 }
