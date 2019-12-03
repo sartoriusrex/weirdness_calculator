@@ -27,7 +27,7 @@ const SearchForm = props => {
 	return(
 		<form 
 			onSubmit={ handleSubmit( onSubmit ) }
-			className="md:w-1/2 flex flex-col"
+			className="flex flex-col items-center mb-4"
 		>
 			<Field 
 				name="query"
@@ -35,19 +35,25 @@ const SearchForm = props => {
 				label="Search Term"
 			/>
 
+			<label 
+				htmlFor="weirdnessScale"
+				className="text-sm text-gray-600 px-2 mb-1 w-full"
+			>Weirdness </label>
+
 			<Field 
 				name="weirdnessScale"
 				component={ RangeSlider }
 				defaultValue="0"
 			/>
-			<div>
-				<label 
-					htmlFor="weirdnessScale"
-				>Weirdness: </label>
-				<p className="inline-block">{ weirdness }</p>
-			</div>
+
+			<p 
+				className="text-lg mb-2"
+			>Weirdness: { weirdness }</p>
 			
-			<button type="submit">Search</button>
+			<button 
+				type="submit"
+				className="bg-purple-800 text-white w-full md:w-1/4"
+			>Search</button>
 
 		</form>
 	)

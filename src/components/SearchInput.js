@@ -2,11 +2,11 @@ import React from 'react';
 
 import { renderError } from '../formValidations/validateSearchInput';
 
-const SearchInput = props => {
+export default function SearchInput( props ) {
 	const { name, input, label, meta } = props;
 
 	return(
-		<div className="my-2 flex flex-col">
+		<div className="my-2 flex flex-col w-full">
 			<label
 				htmlFor={ name }
 				className="text-sm text-gray-600 mb-1 px-2"
@@ -24,5 +24,3 @@ const SearchInput = props => {
 		</div>
 	)
 }
-
-export default SearchInput;

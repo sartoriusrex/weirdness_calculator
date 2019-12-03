@@ -17,11 +17,15 @@ export default function Home() {
 
 			<hr className="my-4"/>
 
-			<SearchForm />
+			<div className="flex flex-col md:flex-row">
+				<div className="md:w-1/2 px-4">
+					<SearchForm />
 
-			<SearchResult />
+					<SearchResult />
+				</div>
 
-			<LikesContainer />
+				<LikesContainer />
+			</div>
 
 		</main>
 	)

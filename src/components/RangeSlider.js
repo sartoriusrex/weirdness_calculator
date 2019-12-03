@@ -1,6 +1,6 @@
 import React from 'react';
 
-const RangeSlider = props => {
+export default function RangeSlider( props ) {
 	const { value, onChange } = props.input;
 	return(
 		<>
@@ -11,10 +11,8 @@ const RangeSlider = props => {
 				max="10"
 				value={ value }
 				onChange={ onChange }
-				className="mb-2 px-2"
+				className="mb-2 px-2 h-8 w-full"
 			/>
 		</>
 	)
 }
-
-export default RangeSlider;
