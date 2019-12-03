@@ -22,7 +22,7 @@ const Results = props => {
 
 			<h4>Congrats! You Scored { weirdnessScore } out of 10 on the Weirdness Scale!</h4>
 
-			<LikesList />
+			<LikesList from="results" />
 
 			<Link to="/">
 				Go Back

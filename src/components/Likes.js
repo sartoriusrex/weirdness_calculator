@@ -11,7 +11,7 @@ const Likes = props => {
 		<article>
 			<h2>Your Liked GIFs</h2>
 			
-			<LikesList />
+			<LikesList from="likes" />
 
 			{ likes.length !== 5 ? 
 				`You must like ${ 5 - likes.length } more GIFs to calculate your score.` 

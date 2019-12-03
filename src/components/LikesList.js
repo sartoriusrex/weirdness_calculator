@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { unlikeGif } from '../store/actions/likes';
 
 const LikesList = props => {
-	const { likes, unlikeGif } = props;
+	const { likes, unlikeGif, from } = props;
 
 	function deleteGifFromList( gifSrc ){
 		unlikeGif( gifSrc );
@@ -19,10 +19,13 @@ const LikesList = props => {
 						src={ gif.stillSrc } 
 						alt={ gif.title } 
 					/>
-					<p>{ gif.weirdness } / 10</p>
-					<button
-						onClick={ () => deleteGifFromList( gif.gifSrc ) }
-					>x</button>
+					{ from === "results" ? 
+						<p>{ gif.weirdness } / 10</p>
+						:
+						<button
+							onClick={ () => deleteGifFromList( gif.gifSrc ) }
+						>x</button>
+					}
 				</li>
 			)}
 		</ul>
