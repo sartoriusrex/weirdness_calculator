@@ -18,13 +18,14 @@ const SearchResult = props => {
 			{/* On initialize */}
 			{ !searchTerm && 
 				!loading &&
-				<p>Search for a gif</p>
+				<h4>Search for a gif</h4>
 			}
 
 			{ loading &&
-				<p>...loading</p>
+				<h4>Loading. Please wait one moment.</h4>
 			}
 
+			{/* Search results will come back with status 200, but without data. In that case, we manually set title and searchTerm to indicate no results */}
 			{ title === "No Results Found" &&
 				searchTerm === "No Results Found" &&
 				<h4>No Results Found</h4>
@@ -45,6 +46,7 @@ const SearchResult = props => {
 			}
 
 			<LikeButton />
+
 		</article>
 	)
 }
