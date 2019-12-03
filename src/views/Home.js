@@ -24,6 +24,8 @@ export default function Home() {
 					<hr className="my-4"/>
 					
 					<SearchResultContainer />
+
+					<hr className="my-4"/>
 				</div>
 
 				<LikesContainer />

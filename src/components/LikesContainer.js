@@ -1,35 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
 
 import LikesList from './LikesList';
+import ProgressIndicator from './ProgressIndicator';
 
-const LikesContainer = props => {
-	const { likes } = props;
-
+export default function LikesContainer() {
 	return(
-		<article>
-			<h2>Your Liked GIFs</h2>
+		<article className="flex flex-col items-center md:w-1/2 px-4 w-full">
+			<h2
+				className="text-2xl my-4"
+			>Your Liked GIFs</h2>
 
-			{/* If the length of the likes list is not 5, then show user how many more gifs they need to like. Otherwise show them the link to calculate their results and navigate them to results page */}
-			{ likes.length !== 5 ? 
-				`You must like ${ 5 - likes.length } more GIFs to calculate your score.` 
-				:
-				<Link to="/results">
-					Calculate Results
-				</Link>
-			}
+			<ProgressIndicator />
 
 			<LikesList from="likes" />
 
 		</article>
 	)
 }
-
-function mapStateToProps( state ) {
-	return{
-		likes: state.likes
-	}
-}
-
-export default connect( mapStateToProps, {  } )( LikesContainer );
