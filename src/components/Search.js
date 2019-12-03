@@ -5,6 +5,8 @@ import { Field, reduxForm, formValueSelector } from 'redux-form';
 import { search } from '../store/actions/search';
 import { setLoading } from '../store/actions/loading';
 import RangeSlider from '../components/RangeSlider';
+import SearchInput from '../components/SearchInput';
+import { validateSearchInput } from '../formValidations/validateSearchInput';
 
 const SearchForm = props => {
 	const { handleSubmit, search, setLoading, weirdness } = props;
@@ -19,12 +21,10 @@ const SearchForm = props => {
 		<form 
 			onSubmit={ handleSubmit( onSubmit ) }
 		>
-			<label htmlFor="query">Search for GIFs</label>
 			<Field 
 				name="query"
-				component="input"
-				type="text"
-				placeholder="Search for GIFs"
+				component={ SearchInput }
+				label="Search for Gifs"
 			/>
 			<label htmlFor="weirdnessScale">Weirdness</label>
 			<p>{ weirdness }</p>
@@ -43,7 +43,8 @@ let SearchFormRedux = reduxForm({
 	initialValues: {
 		query: "",
 		weirdnessScale: 0
-	}
+	},
+	validate: validateSearchInput
 })( SearchForm )
 
 const selector = formValueSelector( "searchGifs" );
