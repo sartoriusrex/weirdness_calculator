@@ -1,21 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
 
-const CalculateResultsButton = props => {
-	const { } = props;
 
+export default function CalculateResultsButton() {
 	return(
-		<Link to="/results">
-			Calculate Results
-		</Link>
+		<button
+			className="bg-green-800 text-white w-full md:w-1/4 py-2"
+		>
+			<Link to="/results">
+				Calculate Results
+			</Link>
+		</button>
 	)
 }
-
-function mapStateToProps( state ){
-	return({
-		likes: state.likes
-	})
-}
-
-export default connect( mapStateToProps, {} )( CalculateResultsButton );
