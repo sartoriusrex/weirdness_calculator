@@ -6,18 +6,22 @@ const SearchInput = props => {
 	const { name, input, label, meta } = props;
 
 	return(
-		<>
-			<label htmlFor={ name } >{ label }</label>
+		<div className="my-2 flex flex-col">
+			<label
+				htmlFor={ name }
+				className="text-sm text-gray-600 mb-1 px-2"
+			>{ label }</label>
 			
-			<input 
+			<input
 				autoComplete="off"
 				type="text"
 				placeholder="Search for GIFs"
+				className="p-2 bg-gray-300 flex-grow mb-2"
 				{ ...input }
 			/>
 
 			{ renderError( meta ) }
-		</>
+		</div>
 	)
 }
 
