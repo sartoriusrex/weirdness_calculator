@@ -11,7 +11,9 @@ const LikesList = props => {
 			{ likes.map( gif => 
 				<li key={ gif.gifSrc }>
 					<h4>GIF Title: { gif.title }</h4>
-					<h4>Search Term: { gif.searchTerm }</h4>
+					{ from === "likes" && 
+					<h4>Search Term: { gif.searchTerm }</h4> 
+					}
 					<img 
 						src={ gif.stillSrc } 
 						alt={ gif.title ? gif.title : "Title and description missing." } 
