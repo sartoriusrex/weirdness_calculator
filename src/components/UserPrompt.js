@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import CalculateResultsButton from './CalculateResultsButton';
-
+import ProgressIndicator from './ProgressIndicator';
 
 const UserPrompt = props => {
 	const { likes } = props;
@@ -21,9 +21,7 @@ const UserPrompt = props => {
 			)
 		}
 		return(
-			<h4
-				className="text-center text-2xl"
-			>Search for GIFs</h4>
+			<ProgressIndicator />
 		)
 	}
 

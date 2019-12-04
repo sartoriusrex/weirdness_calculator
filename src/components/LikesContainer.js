@@ -1,7 +1,6 @@
 import React from 'react';
 
 import LikesList from './LikesList';
-import ProgressIndicator from './ProgressIndicator';
 
 export default function LikesContainer() {
 	return(
@@ -9,8 +8,6 @@ export default function LikesContainer() {
 			<h2
 				className="text-2xl my-4"
 			>Your Liked GIFs</h2>
-
-			<ProgressIndicator />
 
 			<LikesList from="likes" />
 

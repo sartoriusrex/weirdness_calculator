@@ -17,7 +17,8 @@ const ProgressIndicator = props => {
 		)
 	}
 	return(
-		<p className="mb-4"
+		<p 
+			className="text-center text-2xl mb-4"
 		>{ renderMessage( likes ) }</p>
 	)
 }
