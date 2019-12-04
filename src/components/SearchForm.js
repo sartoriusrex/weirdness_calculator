@@ -9,6 +9,7 @@ import { setLoading } from '../store/actions/loading';
 // components
 import RangeSlider from '../components/RangeSlider';
 import SearchInput from '../components/SearchInput';
+import SearchSubmitButton from '../components/SearchSubmitButton';
 
 // form validations for redux-form
 import { validateSearchInput } from '../formValidations/validateSearchInput';
@@ -35,25 +36,18 @@ const SearchForm = props => {
 				label="Search Term"
 			/>
 
-			<label 
-				htmlFor="weirdnessScale"
-				className="text-sm text-gray-600 px-2 mb-1 w-full"
-			>Weirdness </label>
-
 			<Field 
 				name="weirdnessScale"
 				component={ RangeSlider }
 				defaultValue="0"
+				label="Weirdness"
 			/>
 
 			<p 
 				className="text-lg mb-2"
 			>Weirdness: { weirdness }</p>
-			
-			<button 
-				type="submit"
-				className="bg-purple-800 text-white w-full md:w-1/4 py-2"
-			>Search</button>
+
+			<SearchSubmitButton />
 
 		</form>
 	)
