@@ -20,7 +20,7 @@ export const search = ( searchTerm, weirdness ) => dispatch => {
 			
 			// Search results can have status 200 but return without data, meaning no results.
 			if ( res.data.length === 0 ){
-				dispatch( addError("No Result") )
+				dispatch( addError("No Results") )
 			} else {
 				data.searchTerm = searchTerm;
 				data.weirdness = parseInt( weirdness );

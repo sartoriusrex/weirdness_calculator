@@ -7,6 +7,7 @@ import ProgressIndicator from './ProgressIndicator';
 const UserPrompt = props => {
 	const { likes } = props;
 
+	// let users know how many more GIFs they need to like. Once they've reached 5, display a message with the Calculate Result Button
 	function displayPrompt(){
 		if( likes.length === 5 ){
 			return(

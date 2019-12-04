@@ -6,7 +6,7 @@ export default function ErrorIndicator( props ){
 	function displayError(){
 		if( error === "Duplicate Gif" ){
 			return "Sorry, you've already liked a GIF using that Search Term. Please search with a new term."
-		} else if( error === "No Result" ){
+		} else if( error === "No Results" ){
 			return error;
 		}
 
@@ -15,6 +15,6 @@ export default function ErrorIndicator( props ){
 	}
 
 	return(
-	<h4 className="text-xl text-red-700">{ displayError() }</h4>
+	<h4 className="text-2xl text-red-700 mb-4">{ displayError() }</h4>
 	)
 }
