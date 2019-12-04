@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 
 import { renderError } from '../formValidations/validateSearchInput';
 
 export default function SearchInput( props ) {
-	const { name, input, label, meta } = props;
+	const { name, input, label, meta, likes } = props;
+	const searchField = useRef( null );
+
+	useEffect( () => {
+		searchField.current.focus();
+	}, [ likes ])
 
 	return(
 		<div className="my-2 flex flex-col w-full">
@@ -13,6 +18,7 @@ export default function SearchInput( props ) {
 			>{ label }</label>
 			
 			<input
+				ref={ searchField }
 				autoComplete="off"
 				type="text"
 				placeholder="Search for GIFs"

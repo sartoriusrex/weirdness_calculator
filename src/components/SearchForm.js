@@ -16,7 +16,7 @@ import { validateSearchInput } from '../formValidations/validateSearchInput';
 
 
 const SearchForm = props => {
-	const { handleSubmit, search, setLoading, weirdness } = props;
+	const { handleSubmit, search, setLoading, weirdness, likes } = props;
 
 	function onSubmit( formValues ) {
 		const { query, weirdnessScale } = formValues;
@@ -34,6 +34,7 @@ const SearchForm = props => {
 				name="query"
 				component={ SearchInput }
 				label="Search Term"
+				likes={ likes }
 			/>
 
 			<Field 
@@ -69,6 +70,7 @@ SearchFormRedux = connect( state => {
 
 	return {
 		weirdness,
+		likes: state.likes
 	}
 }, { search, setLoading })( SearchFormRedux )
 
