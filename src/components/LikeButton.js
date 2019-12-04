@@ -1,10 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+// style
+import './LikeButton.css';
+
+// actions
 import { likeGif } from '../store/actions/likes';
+import { duplicateGifError } from '../store/actions/errors';
 
 const LikeButton = props => {
-	const { searchResult, likes, likeGif } = props;
+	const { searchResult, likes, likeGif, duplicateGifError } = props;
 
 	function checkSearchTermDuplicates( candidate ) {
 		const searchTerms = likes.map( gifs => gifs.searchTerm );
@@ -15,7 +20,7 @@ const LikeButton = props => {
 		if( checkSearchTermDuplicates( searchResult.searchTerm ) ) {
 			return likeGif( searchResult );
 		}
-		alert( "You already liked a gif using that Search Term. Please search for a new Gif using another search term.");
+		duplicateGifError( "Duplicate Gif" );
 	}
 
 	function disableLikeButton(){
@@ -36,7 +41,7 @@ const LikeButton = props => {
 			type="submit" 
 			onClick={ handleLike }
 			disabled={ disableLikeButton() }
-			className="bg-green-800 text-white py-2 my-4 md:w-1/4 w-full"
+			className="like-button bg-green-800 text-white py-2 my-4 md:w-1/4 w-full"
 		>Like</button>
 	)
 }
@@ -48,4 +53,4 @@ function mapStateToProps( state ) {
 	}
 }
 
-export default connect( mapStateToProps, { likeGif } )( LikeButton );
+export default connect( mapStateToProps, { likeGif, duplicateGifError } )( LikeButton );

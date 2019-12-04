@@ -22,7 +22,7 @@ const SearchResultContainer = props => {
 			<div className="my-2 flex flex-col items-center justify-center min-h-1/2 w-full">
 
 				{/* If there are errors */}
-				{ errors && <ErrorIndicator /> }
+				{ errors && <ErrorIndicator error={ errors } /> }
 
 				{/* Loading state */}
 				{ loading && <LoadingIndicator /> }
