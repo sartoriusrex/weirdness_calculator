@@ -10,9 +10,9 @@ export default function Home() {
 			<h1 className="text-4xl text-purple-800 text-center my-4">Weirdness Calculator</h1>
 
 			<section className="flex flex-col md:flex-row">
-				<p className="my-2 md:block md:w-1/3 md:px-2">Find out how weird you are by selecting the GIFs that make you laugh. We will show the least weird ones to start. To change the weirdness of the results, you can move the slider.</p>
-				<p className="my-2 md:block md:w-1/3 md:px-2">When you find a GIF you like, press the <em>Like</em> button. Once you like 5 GIFs, you can calculate your weirdness.</p>
-				<p className="my-2 md:block md:w-1/3 md:px-2">You can only select one GIF per search term. For example, you cannot like 3 GIFs that you found by only searching for "pantomine." At any point, you can remove previously liked GIFs.</p>
+				<p className="my-2 md:block md:w-1/3 md:mx-2">Find out how weird you are by selecting the GIFs that make you laugh. We will show the least weird ones to start. To change the weirdness of the results, you can move the slider.</p>
+				<p className="my-2 md:block md:w-1/3 md:mx-2">When you find a GIF you like, press the <em>Like</em> button. Once you like 5 GIFs, you can calculate your weirdness.</p>
+				<p className="my-2 md:block md:w-1/3 md:mx-2">You can only select one GIF per search term. For example, you cannot like 3 GIFs that you found by only searching for "pantomine." At any point, you can remove previously liked GIFs.</p>
 			</section>
 
 			<hr className="my-4"/>
