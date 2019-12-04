@@ -7,7 +7,9 @@ export default function SearchInput( props ) {
 	const searchField = useRef( null );
 
 	useEffect( () => {
-		searchField.current.focus();
+		if( likes.length !== 5 ){
+			searchField.current.focus();
+		}
 	}, [ likes ])
 
 	return(
