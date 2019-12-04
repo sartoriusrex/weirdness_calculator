@@ -33,7 +33,7 @@ const Results = props => {
 				className="text-2xl mb-6 text-center"
 			>Congrats! You Scored { weirdnessScore } out of 10 on the Weirdness Scale!</h4>
 
-			<div>
+			<div className="mb-4">
 				<Link 
 					to="/"
 					className="bg-gray-300 px-2 py-1 mx-4"

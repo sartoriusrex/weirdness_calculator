@@ -18,14 +18,9 @@ export const search = ( searchTerm, weirdness ) => dispatch => {
 		).then( res => {
 			let data = {}
 			
-			// Search results can have status 200 but return with data
-			// We manually input data to indicate that there were no search results found for the given query
+			// Search results can have status 200 but return without data, meaning no results.
 			if ( res.data.length === 0 ){
-				data.searchTerm = "No Results Found";
-				data.weirdness = 0;
-				data.title = "No Results Found";
-				data.gifSrc = "";
-				data.stillSrc = "";
+				dispatch( addError("No Result") )
 			} else {
 				data.searchTerm = searchTerm;
 				data.weirdness = parseInt( weirdness );
@@ -33,14 +28,17 @@ export const search = ( searchTerm, weirdness ) => dispatch => {
 				data.title = res.data.title === "" ? "No Title" : res.data.title ;
 				data.gifSrc = res.data.images.fixed_height.url;
 				data.stillSrc = res.data.images.fixed_height_small_still.url;
+
+				dispatch( displaySearchResult( data ) );
+
+				// If there were errors previously from other searchs, remove them
+				dispatch( removeError() );
 			}
 
-			dispatch( displaySearchResult( data ) );
-
-			// If there were errors previously from other searchs, remove them
-			dispatch( removeError() );
 			dispatch( setLoading( false ) );
+
 		}).catch( e => {
+			// Interestingly, could not produce many errors, although undefined was sometimes present. If that's the case, then we reassing it and pass it off to the UI
 			if( e === undefined ){
 				e = "No gifs found"
 			}
