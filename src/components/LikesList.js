@@ -30,7 +30,7 @@ const LikesList = props => {
 					<img 
 						src={ gif.stillSrc } 
 						alt={ gif.title !== "" ? gif.title : "Title and description missing." } 
-						className="w:1/4"
+						className="max-w-1/3"
 					/>
 
 					{ from === "likes" &&
